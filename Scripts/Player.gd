@@ -1,7 +1,8 @@
 extends "res://Scripts/CharacterTemplate.gd"
 
 var Motion=Vector2(0,0)
-
+onready var Torch=$Torch
+	
 func UpdateMovement():
 	look_at(get_global_mouse_position())
 	if Input.is_action_pressed("move_up") and not Input.is_action_pressed("move_down"):
@@ -17,6 +18,9 @@ func UpdateMovement():
 		Motion.x=clamp(Motion.x-SPEED,-MAX_SPEED,0)
 	else:
 		Motion.x=lerp(Motion.x,0,STOPPING_TIME)
+	
+	if Input.is_action_just_pressed("ToggleTorch"):
+		Torch.enabled=not Torch.enabled
 	
 func  _physics_process(delta):
 	UpdateMovement()

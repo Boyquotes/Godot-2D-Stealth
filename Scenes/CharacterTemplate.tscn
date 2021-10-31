@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GFX/PNG/Man Red/manRed_stand.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/CharacterTemplate.gd" type="Script" id=2]
@@ -7,15 +7,22 @@
 radius = 10.9619
 height = 20.6031
 
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -2.15149, -22.4976, 5.40805, -19.3478, 9.50279, -15.253, 8.87283, -7.06356, 11.0777, -1.70889, 11.0777, 2.70083, 9.50279, 5.22067, 8.55785, 9.63039, 7.92789, 14.0401, 6.35298, 19.3948, 2.25824, 21.9146, -4.04137, 21.9146, -8.13611, 20.3397, -10.9709, 14.9851, -12.5458, 9.63039, -13.1758, 6.16561, -14.1207, 0.495965, -13.8058, -3.59878, -12.5458, -5.17368, -12.2309, -10.8433, -10.6559, -15.568, -9.71101, -19.0328, -6.24623, -21.5527 )
+
 [node name="KinematicBody2D" type="KinematicBody2D"]
+position = Vector2( 0.707092, -0.707108 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.41422, 0 )
 shape = SubResource( 1 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 2 )
