@@ -4,17 +4,12 @@ extends "res://Scripts/CharacterTemplate.gd"
 const FOV_TOLERANCE=19
 const DISTANCE_TOLERANCE=640
 const RED=Color(1,0,0)
-const WHITE=Color(1,1,1)
+const WHITE=Color(41.0/255,71.0/255,176.0/255,1)
 
 #Get player node
 onready var Player=get_node("/root").find_node("Player",true,false)
-#Get animation node
-onready var MoveAnimation=$"../AnimationPlayer"
 
 
-func _ready():
-	MoveAnimation.play("Rotate")
-		
 func _process(delta):
 	if PlayerInFOV() and PlayerInLOS():
 		$Torch.color=RED
