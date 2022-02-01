@@ -29,7 +29,7 @@ func _physics_process(delta):
 func make_path():
 	var NewDestination=PossibleDestinations[randi()%ArrSize]
 	NavPath=Nav2D.get_simple_path(position,NewDestination.position,false)
-	print(NavPath)
+	#print(NavPath)
 	
 
 func Navigate():

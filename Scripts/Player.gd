@@ -7,6 +7,9 @@ onready var Torch=$Torch
 func _input(event):
 	if Input.is_action_just_pressed("ToggleTorch"):
 		Torch.enabled=not Torch.enabled
+	elif Input.is_action_just_pressed("ToggleVision"):
+		get_tree().call_group("Interface","ChangeColour")
+		
 	
 func UpdateMovement():
 	look_at(get_global_mouse_position())
